@@ -35,13 +35,13 @@ Help options:
 	"""
 	echo "$USAGE"
 }
-
-gsnap_gmap_version=2015-12-31.v7
+# gsnap_gmap_version=2015-12-31.v7
+gsnap_gmap_version=2024-06-24
 anaconda_version=2-2.5.0
 anaconda_file=Anaconda$anaconda_version-Linux-x86_64.sh
 muscle_file=muscle3.8.31_i86linux64
-samtools_version=1.3
-zlib_version=1.2.11
+samtools_version=1.20
+zlib_version=1.3.1
 kmer=15
 opsys=linux
 software_install=all
@@ -118,8 +118,8 @@ samtools_install()
 	echo "Installing Samtools $samtools_version"
 	samtools_version=$samtools_version
 	samtools_file=samtools-${samtools_version}.tar.bz2
-	#samtools_url=https://github.com/samtools/samtools/releases/download/1.3/$samtools_file
-	samtools_url=https://kent.dl.sourceforge.net/project/samtools/samtools/1.3/$samtools_file
+	samtools_url=https://github.com/samtools/samtools/releases/download/1.20/$samtools_file
+	#samtools_url=https://kent.dl.sourceforge.net/project/samtools/samtools/1.3/$samtools_file
 	pushd .
 	cd bin
 	if [ "$opsys" == "osx" ]; then
@@ -173,7 +173,7 @@ gsnap_install() {
     fi
 	tar xvzf $gsnap_gmap_file &&
 	rm $gsnap_gmap_file
-	cd gmap*
+	cd gmap-${gsnap_gmap_version}
 	./configure --prefix=$MTOOLBOX_BIN/gmap
 	make
 	make install
