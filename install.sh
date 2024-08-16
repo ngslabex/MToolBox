@@ -174,6 +174,7 @@ gsnap_install() {
 	tar xvzf $gsnap_gmap_file &&
 	rm $gsnap_gmap_file
 	cd gmap-${gsnap_gmap_version}
+	# cd gmap-2015-12-31
 	./configure --prefix=$MTOOLBOX_BIN/gmap
 	make
 	make install
