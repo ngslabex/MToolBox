@@ -191,10 +191,10 @@ gsnap_db_install() {
 	rsrs_mfasta_url=http://sourceforge.net/projects/mtoolbox/files/genome_fasta/chrRSRS.fa.gz
 	rsrs_mfasta=chrRSRS.fa.gz
 	if [ "$opsys" == "osx" ]; then
-	    curl -L $nfasta_rcrs_url -o $nfasta_rcrs
-	    curl -L $nfasta_rsrs_url -o $nfasta_rsrs
-	    curl -L $rcrs_mfasta_url -o $rcrs_mfasta
-	    curl -L $rsrs_mfasta_url -o $rsrs_mfasta
+	    wget -c $nfasta_rcrs_url
+	    wget -c $nfasta_rsrs_url
+	    wget -c $rcrs_mfasta_url
+	    wget -c $rsrs_mfasta_url
     else
     	download $nfasta_rcrs_url $nfasta_rcrs
 	    download $nfasta_rsrs_url $nfasta_rsrs
